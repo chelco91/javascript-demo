@@ -1,5 +1,5 @@
 /**
- * changes the background color when moused over
+ * A general find and replace function
  **/
 function findAndReplace() {
 	// grab find value from input tag
@@ -22,11 +22,16 @@ function findAndReplace() {
  * changes around the order of words
  **/
 function arrayShuffle() {
+	// grab text to manipulate
 	var textArray = document.getElementById("demoText").innerHTML;
 
+	// separate textArray into words using blankspace delimiter
 	var newTextArray = textArray.split(' ');
 
+	// grab how many words are in the array
 	var len = newTextArray.length;
+
+	// loop through the text mixing words randomly
 	var i = len;
 	while (i--) {
 		var p = parseInt(Math.random()*len);
@@ -35,53 +40,6 @@ function arrayShuffle() {
 		newTextArray[p] = t;
 	}
 
-	document.getElementById("demoText").innerHTML = newTextArray;
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function rot13() {
-	// grab text from p tag
-	var text = document.getElementById("demoText").innerHTML;
-
-	// perform rot13 operation on text
-	var newText = (text + '').replace(/[a-z]/gi, function(s) {
-		String.fromCharCode(s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13));
-	});
-
 	// place edited text back into the page
-	document.getElementById("demoText").innerHTML = newText;
-}
-
-function str_rot13() {
-	var text = document.getElementById("demoText").innerHTML;
-	var finalText = (text + '').replace(/[a-z]/gi, function(s) {
-			return String.fromCharCode(s.charCodeAt(0) + (s.toLowerCase() < 'n' ? 13 : -13));
-		});
-	document.getElementById("demoText").innerHTML = finalText;
+	document.getElementById("demoText").innerHTML = newTextArray;
 }
